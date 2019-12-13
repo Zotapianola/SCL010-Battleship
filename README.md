@@ -133,7 +133,26 @@ _Agrega notas adicionales sobre como hacer deploy_
 Las herramientas utilizadas para crear este proyecto fueron
 
 * [React.js](https://reactjs.org/) - El framework web usado
-* [Firebase](https://firebase.google.com/) - Manejador de dependencias
+* [Firebase](https://firebase.google.com/) - Base de datos
+
+### Herramienta de Planificación 
+
+Fue utilizada la herramienta [Trello](https://trello.com/) para realizar la planificación del proyecto.
+```
+Para acceder al tablero de plafinicación haz click [aquí](https://trello.com/b/k7U7ELO7).
+```
+
+### Herramienta de Diseño
+
+Se realizo el prototipo de alta fidelidad en [Adobe XD](https://www.adobe.com/products/xd.html)
+```
+Para acceder al prototipo haz click [aquí](https://xd.adobe.com/view/b48dfa56-9777-4e4e-5b3d-80937f8fec8d-c2bc/?fullscreen).
+```
+El wareframe o prototipo de baja fidelidad fue elaborado a mano y es el siguiente
+
+![wareframe-1](/game/src/img/Wareframe-1.JPG)
+![wareframe-2](/game/src/img/Wareframe-2.JPG)
+![wareframe-3](/game/src/img/Wareframe-3.JPG)
 
 ## Autores ✒️
 
