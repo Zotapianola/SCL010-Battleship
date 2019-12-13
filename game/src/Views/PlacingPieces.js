@@ -39,7 +39,7 @@ function PlacingPieces() {
 
     const sentInvitation = (docRefGamer) => {
       //Se envia la petición de enviar por wsp pero falta agregar URL para entrar al juego
-      window.location.href = 'whatsapp://send?text=Puedes bañar a estos perritos más rápido que yo? Únete a mi juego ingresando esta clave en tu juego: ' + docRefGamer.toString() 
+      window.location.href = "whatsapp://send?text=https://zotapianola.github.io/SCL010-Battleship/" + " ¿Puedes bañar a estos perritos más rápido que yo? Únete a mi juego ingresando esta clave: " + docRefGamer.toString();
     }
   
   let piecesToSaveState = {piecesToSave,setPiecesToSave};  

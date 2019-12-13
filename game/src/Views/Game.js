@@ -73,12 +73,12 @@ function Game() {
         setdataPlayer2(player2);
         setIsOpponentLoaded(true);
       }else{
-        alert("codigo del oponente incorrecto");
+        alert("Código de oponente incorrecto");
       }
       
     })
     .catch (err=> {
-      alert("codigo del oponente incorrecto");
+      alert("Código de oponente incorrecto");
       setIsOpponentLoaded(false);
     })
   }
@@ -100,17 +100,17 @@ function Game() {
   }
 
   const showWinner = () => {
-    if(dataPlayer1.foundPieces==7){
+    if(dataPlayer1.foundPieces===7){
       return "El ganador es " + dataPlayer2.name1;
     }
-    if(dataPlayer2.foundPieces==7){
+    if(dataPlayer2.foundPieces===7){
       return "El ganador es " + dataPlayer1.name1;
     }
     return "none";
   }
   
   return isLoading ? <h1>Cargando Juego ...</h1> : (
-    showWinner() != "none" ? 
+    showWinner() !== "none" ? 
     <div>
       {showWinner()}
       <Link to="/EndGame">Terminar juego</Link>
@@ -119,7 +119,7 @@ function Game() {
     <div>
       <div className="AreaJugador1">
       <h2>Jugador:{dataPlayer1.name1}</h2>
-      <h3> A bañado {dataPlayer2.foundPieces} de 7 perritos</h3>
+      <h3> Ha bañado {dataPlayer2.foundPieces} de 7 perritos</h3>
         <ContexPlayer1.Provider value={ContexPlayer1State}>
         <GameBoardPlayer1/>
         </ContexPlayer1.Provider>
@@ -130,7 +130,7 @@ function Game() {
         </Button>
       <div className="AreaJugador2">
       <h2>Jugador:{dataPlayer2.name1}</h2>
-      <h3>A bañado {dataPlayer1.foundPieces} de 7 perritos</h3>
+      <h3>Ha bañado {dataPlayer1.foundPieces} de 7 perritos</h3>
       <Input id="opponentGameBoardId"
           type="text" 
           placeholder="Ingrese codigo" 
