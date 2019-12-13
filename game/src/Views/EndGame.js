@@ -9,7 +9,7 @@ function EndGame() {
       <h3>No puedes comprar la felicidad pero puedes adoptar un perrito y eso es casi lo mismo</h3>
       <Button><Link to="/Game">Volver</Link></Button>
       <Button><Link to="/PlacingPieces">Revancha</Link></Button>
-      <Button variant="outlined"><Link to="/StartGame"></Link>Salir</Button>
+      <Button><Link to="/StartGame">Salir</Link></Button>
     </div>
   );
 }
