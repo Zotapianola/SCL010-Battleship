@@ -34,7 +34,7 @@
 }
 
 .MuiTableCell-root {
-  padding: 14px !important;
+  padding: 12px !important;
   border: 1px solid black;
   display: flex;
   justify-content: center;
