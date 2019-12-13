@@ -1,162 +1,163 @@
-# Battleship
+# Washing Dogs
 
-## Índice
+_Acá va un párrafo que describa lo que es el proyecto_
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Pistas, tips y lecturas complementarias](#5-pistas-tips-y-lecturas-complementarias)
-* [6. Hacker edition](#6-hacker-edition)
+## Preámbulo
 
-## 1. Preámbulo
+Battleship es un juego clásico, con múltiples versiones en juegos de mesa y en línea (si no lo conoces, puedes verlo en este link : [battle-ship](https://es.wikipedia.org/wiki/Batalla_naval_(juego))).
 
-<img
-src="https://user-images.githubusercontent.com/7809496/66518543-dc75c380-eabb-11e9-8fb9-1d96d97a6a8c.png"
-width="100%"/>
+El juego es para dos personas. Consiste en que en un tablero cada jugador coloca un conjunto de barcos, ocultando su posición del contrincante. Luego, por turnos, van anunciando una posición del tablero y el enemigo informa si le han dado a uno de sus barcos o no. El juego termina cuando un jugador ha conseguido hundir todos los barcos del otro.
 
-Los videojuegos son una verdadera prueba cuando se trata de tecnología. Uno de
-los factores de éxito para el equipo de android, por ejemplo, fue que pudiesen
-tener un juego corriendo en los primeros teléfonos. La idea era que si un juego
-podía ejecutarse en la plataforma, un programa más simple con pantallas mucho
-más fáciles de trabajar que solo tuviese botones y texto debería funcionar aun
-mejor.
+## Comenzando 🚀
 
-Entonces la idea de este proyecto es llevar los frameworks de aplicaciones web
-al límite de lo que pueden ofrecer, tratar de explorar sus funcionalidades más
-avanzadas y lograr un producto que se luzca con tu talento y creatividad
-dominando el framework que elijas.
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-## 2. Resumen del proyecto
+Mira **Deployment** para conocer como desplegar el proyecto.
 
-<img
-src="https://user-images.githubusercontent.com/7809496/66517403-78ea9680-eab9-11e9-8ab4-8d3c2cc21646.png"
-width="100%"/>
 
-Battleship es un juego clásico, con múltiples versiones en juegos de mesa y en
-linea (si no lo conoces, puedes verlo en este link :
-[battle-ship](https://es.wikipedia.org/wiki/Batalla_naval_(juego))).
+### Pre-requisitos 📋
 
-El juego es para dos personas. Consiste en que en un tablero cada jugador coloca
-un conjunto de barcos, ocultando su posición del contrincante. Luego, por
-turnos, van anunciando una posición del tablero y el enemigo informa si le han
-dado a uno de sus barcos o no. El juego termina cuando un jugador ha conseguido
-hundir todos los barcos del otro.
+_Que cosas necesitas para instalar el software y como instalarlas_
 
-En este proyecto deberás crear una nueva versión, agregándole algún giro para
-actualizarlo y hacerlo más atractivo para las nuevas generaciones. También, no
-estás atada a hacer este juego sobre barcos, puedes hacerlo con el tema que más
-te guste, siempre y cuando el modo de juego sea parecido.
+```
+Da un ejemplo
+```
 
-También el juego debe ser para dos jugadores, para lograrlo debes pensar en cómo
-puedes estructurar la información, estado de la aplicación y cómo guardarlos en
-alguna base de datos como __Firebase__ o __MongoDB Stitch__.
+### Instalación 🔧
 
-## 3. Objetivos de aprendizaje
+_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-1. El objetivo principal de hacer este juego es que puedas diseñar un esquema de
-datos y lo apliques a una base de datos conocida, como _firebase_ o _mongodb_.
-Muchas veces el como modeles la información es más importante a como estructures
-tu código, ya que los problemas que puedan aparecer en el futuro tendrán su
-origen acá.
+_Dí cómo será ese paso_
 
-2. No menos importante, tendrás que diseñar y mantener el estado dentro de la
-aplicación, esto es la información que usas y guardas temporalmente por cada
-ejecución. Para esto unas herramientas para _react_ que te pueden servir son
-__Redux__ o también __Context API__ así como también los estados internos de
-cada componente. Por el lado de _angular_ tendrás a los __observables__
-y su uso conjunto con los __servicios__ y por supuesto las propiedades que uses
-en cada componente.
+```
+Da un ejemplo
+```
 
-3. Y finalmente tendrás que diseñar una interfaz llamativa, usando y abusando de
-todo lo que sabes de CSS y animaciones para que tengas un juego vistoso y que
-guste a la gente. Tienes que invitar a jugar tu juego.
+_Y repite_
 
-Tópicos: _react_, _angular_, _redux_, _firebase_, _mongodb stitch_.
+```
+hasta finalizar
+```
 
-## 4. Consideraciones generales
+_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
-Este proyecto se debe resolver en equipos de 3 personas.
+### Test con Usuarios
 
-La planificación es clave, por lo que debes coordinarte con tu equipo e
-identificar las historias de usuario, priorizarlas y trabajarlas sprint a sprint
-cuidando de que hayan test para el código, se haya hecho test con usuarios sobre
-la usabilidad y cumpliendo con las ceremonias de SCRUM que has aprendido a lo
-largo del bootcamp.
+-   **Nombre:**  Daniela Muñoz
+-   **Edad:**  18 años
+-   **Ocupación:**  Estudiante
+-   **Experiencia de juego:**  Novata en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - No entiende de quién es el turno de jugar
+    - No entiende la temática del juego
+    - Le gustaría poder cambiar la orientación de las piezas
 
-También para este proyecto, usa cualquier framework (_react_, _angular_, etc...)
-cuidando de que se vea bien en las pantallas de celular o computador, que los
-jugadores puedan elegir la plataforma libremente sin prejuicio de la
-jugabilidad. Para esto considera un tamaño variable de pantalla y que los
-elementos del juego se redimensionen dependiendo de ella.
+-   **Nombre:**  Lukas Candia
+-   **Edad:**  19 años
+-   **Ocupación:**  Estudiante
+-   **Experiencia de juego:**  Intermedio en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - No entiende cuál es el tablero que debe atacar
+    - No entiende la temática del juego
+    
+-   **Nombre:**  Valerie Hardy
+-   **Edad:**  52 años
+-   **Ocupación:**  Pedagoga
+-   **Experiencia de juego:**  Novata en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - Le gustaría poder cambiar la orientación de las piezas
+    - Preferiría que las piezas cambien de color en vez de mostrar símbolos
+    - Le gusta el concepto sobre la adopción de perros
+    - Entiende la temática del juego
 
-Para la base de datos, trata de modelar bien cómo guardarás los datos y piensa
-bien el cómo soportar varios usuarios a la vez en diferentes salas de juego.
-Recuerda que "battleship" se juega de a dos. Usa tu creatividad para asignar
-contrincantes a cada jugador.
+-   **Nombre:**  Trinidad Vega
+-   **Edad:**  19 años
+-   **Ocupación:** Estudiante
+-   **Experiencia de juego:**  Novata en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - Preferiría que las piezas cambien de color en vez de mostrar símbolos
+    - Le gustan los tonos de colores
+    - No entiende qué indican los símbolos cuando se selecciona una casilla
+    - Preferiría que los tableros tuvieran un color distinto a blanco
 
-### Definición de terminado para cada historia de usuario
+-   **Nombre:** Teva Cuevas
+-   **Edad:**  18 años
+-   **Ocupación:** Estudiante
+-   **Experiencia de juego:**  Intermedio en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - No entiende la mecánica de cómo jugar
+    - Le gusta que el concepto sea sobre perritos
 
-* Debes haber recibido _code review_ de al menos una compañera.
-* Haces _test_ unitarios y, además, has testeado tu producto manualmente.
-* Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
-* Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+-   **Nombre:**  Areli Diaz
+-   **Edad:**  25 años
+-   **Ocupación:** Ing. Comercial
+-   **Experiencia de juego:**  Novata en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - Le gusta la frase final sobre la adopción de perritos
+    - Le gustan los tonos de colores
+    - No entiende la temática del juego
 
-## 5. Pistas, tips y lecturas complementarias
+-   **Nombre:**  Barbara Rodriguez
+-   **Edad:**  24 años
+-   **Ocupación:** Bailarina
+-   **Experiencia de juego:**  Novata en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - Preferiría animar la imagen principal
+    - No entiende qué indican los símbolos cuando se selecciona una casilla 
+    - No entiende a quién le corresponde el turno de jugar
 
-1. Modelar los datos, es un paso muy importante, considera que el juego es de
-dos personas, pero más de una pareja puede estar jugando a la vez (modelo de
-salón de juego).
+-   **Nombre:**  Angelo Pozo
+-   **Edad:**  25 años
+-   **Ocupación:** 
+-   **Experiencia de juego:**  Intermedio en Battleship
+-   **Observaciones/Feedback:**
+    -  Utiliza todos los botones
+    - No sabe cuál es el tablero del oponente
+    - No entiende la temática del juego 
+    - No entiende a quién le corresponde el turno de jugar
+    - Le gustaría que los tableros fueran de un color distinto a blanco
 
-2. Haz un _fork_ de este repositorio (en GitHub). Luego que tus compañeras de
-proyecto hagan a su vez _fork_ de __tu__ repositorio. Recuerda, como en
-proyectos anteriores, que una de ustedes debe ser la integradora o _maestra_ del
-repositorio principal.
+## Despliegue 📦
 
-3. Para facilidad piensa en una cuadrícula y que cada _barco_ solo ocupa una de
-ellas. Si quieres escalar en dificultad para este proyecto, puedes intentar con
-barcos de formas y tamaños diferentes.
+_Agrega notas adicionales sobre como hacer deploy_
 
-4. Ten el concepto de turno y guarda de quién es el turno cada vez en la base de
-datos. También define la condición de término en una forma que tu código lo
-pueda detectar, como por ejemplo : todos los barcos se han hundido.
+## Construido con 🛠️
 
-5. Llevar el estado del juego es primordial, define bien las acciones,
-reducidores y datos que estarán en cada juego, turno y movida de los jugadores.
-Puedes hacer un diagrama de estados para esto :
-[diagrama-estados](https://www.lucidchart.com/pages/es/diagrama-de-maquina-de-estados)
+Las herramientas utilizadas para crear este proyecto fueron
 
-### Otros recursos
+* [React.js](https://reactjs.org/) - El framework web usado
+* [Firebase](https://firebase.google.com/) - Base de datos
 
-#### Bibliotecas y componentes
+### Herramienta de Planificación 
 
-* [redux](https://es.redux.js.org/)
-* [animaciones-react](https://medium.com/@dmitrynozhenko/5-ways-to-animate-a-reactjs-app-in-2019-56eb9af6e3bf)
-* [animaciones-angular](https://blog.angularindepth.com/total-guide-to-dynamic-angular-animations-that-can-be-toggled-at-runtime-be5bb6778a0a)
-* [servicios-angular](https://angular.io/tutorial/toh-pt4)
-* [contexto-react](https://es.reactjs.org/docs/context.html)
-* [hooks-react](https://es.reactjs.org/docs/hooks-intro.html)
-* [Más animaciones para frameworks](https://popmotion.io/pose/)
+Fue utilizada la herramienta [Trello](https://trello.com/) para realizar la planificación del proyecto.
+```
+Para acceder al tablero de plafinicación haz click [aquí](https://trello.com/b/k7U7ELO7).
+```
 
-#### Conceptos
+### Herramienta de Diseño
 
-* [observables](https://angular.io/guide/observables)
-* [visualizador-observables](https://rxviz.com/)
-* [visualizador-observables-2](https://rxmarbles.com/)
+Se realizo el prototipo de alta fidelidad en [Adobe XD](https://www.adobe.com/products/xd.html)
+```
+Para acceder al prototipo haz click [aquí](https://xd.adobe.com/view/b48dfa56-9777-4e4e-5b3d-80937f8fec8d-c2bc/?fullscreen).
+```
+El wareframe o prototipo de baja fidelidad fue elaborado a mano y es el siguiente
 
-## 6. Hacker edition
+![wareframe-1](/game/src/img/Wareframe-1.JPG)
+![wareframe-2](/game/src/img/Wareframe-2.JPG)
+![wareframe-3](/game/src/img/Wareframe-3.JPG)
 
-Hasta el momento has usado javascript, html, css, react, angular, y otras
-herramientas para hacer tus aplicaciones, pero ¿qué tal si te aventuras con tu
-grupo a hacer este proyecto usando algún framework orientado a videojuegos?. Te
-invitamos a aceptar el desafío e intentar hacer el juego usando algún
-__game engine__ como los que están a continuación o el que tu encuentres en la
-internet:
+## Autores ✒️
 
-* [GDevelop](https://gdevelop-app.com/)
-* [Moddio](https://www.modd.io/)
-* [Construct](https://www.scirra.com)
-* [Babylon](https://www.babylonjs.com/)
-* [Impact](https://github.com/phoboslab/impact)
-* [Phaser](https://phaser.io)
+* **Anabel Carrion** - *Trabajo funcional* - [anabelcarrion](https://github.com/anabelcarrion)
+* **Estefania Romero C.** - *Diseño y Documentación* - [zotapianola](https://github.com/Zotapianola)
+* **Scarlette Villarreal Á.** - *Trabajo funcional* - [villarrealscarlette](https://github.com/VillarrealScarlette)
 
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/Zotapianola/SCL010-Battleship/graphs/contributors) quíenes han participado en este proyecto.  

@@ -17,11 +17,13 @@ function PlacingPieces() {
       try {
           console.log(piecesToSave);
           const getNameFromLocalStorage = JSON.parse(localStorage.getItem('name'));
-    
+          //guardando en firebase
           const db = firebase.firestore();
           let docRef = await db.collection("game").add({
             name1: getNameFromLocalStorage,
-            pieces: piecesToSave
+            pieces: piecesToSave,
+            checkedPositions: [],
+            foundPieces: 0  
           })
 
           docRefGamer = docRef.id;
@@ -37,7 +39,7 @@ function PlacingPieces() {
 
     const sentInvitation = (docRefGamer) => {
       //Se envia la petición de enviar por wsp pero falta agregar URL para entrar al juego
-      window.location.href = 'whatsapp://send?text=Puedes bañar a estos perritos más rápido que yo? Únete a mi juego ingresando esta clave en tu juego: ' + docRefGamer.toString() 
+      window.location.href = "whatsapp://send?text=https://zotapianola.github.io/SCL010-Battleship/" + " ¿Puedes bañar a estos perritos más rápido que yo? Únete a mi juego ingresando esta clave: " + docRefGamer.toString();
     }
   
   let piecesToSaveState = {piecesToSave,setPiecesToSave};  
@@ -56,13 +58,11 @@ function PlacingPieces() {
     <footer>
      <Button variant="outlined"
       onClick={() => sentToFirebase()}>
-        1. Guardar juego
-      </Button>
-       <Button 
+        1.Guardar Tablero
+      </Button>    
+      <Link to="/Game"><Button 
        variant="outlined" 
-       disabled = {!isSavedInFirebase}>
-      <Link to="/Game">2. Jugar</Link>
-      </Button>  
+       disabled = {!isSavedInFirebase}>2.Jugar</Button></Link>
       </footer>
     </div>
   );

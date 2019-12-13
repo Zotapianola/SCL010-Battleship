@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 //import { usePieceState } from './Pieces';
 import './GameBoard.css';
 import {ContexPlayer2} from '../Views/Game';
+import firebase from '../data/firebase'
 
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import { PlacingPiecesContext } from '../Views/PlacingPieces';
 
+
+let checkedPositions=[];
+let foundPieces=0;
 
 const GameBoardPlayer2 = () => {
 
@@ -30,7 +32,24 @@ const GameBoardPlayer2 = () => {
       }
       table[h] = row;
     }
+    console.log(dataPlayer2)
+    for (let i = 0; i < dataPlayer2.checkedPositions.length; i++) {
+      let position = dataPlayer2.checkedPositions[i];
+      table [position.x][position.y].checked = true;
+    }
     
+    
+    
+    for (let index = 0; index < dataPlayer2.pieces.length; index++) {
+      let piece = dataPlayer2.pieces[index];
+      for (let i=piece.x; i< piece.x + piece.sizeH; i++){
+        for (let j=piece.y; j< piece.y + piece.sizeV; j++){
+          if(table [i][j].checked){
+            table [i][j].state = true; 
+          }          
+        }
+      }     
+    }
     return table;
   }
   const [tableState, setTableState] = useState(createTablePlayer1());
@@ -43,26 +62,46 @@ const GameBoardPlayer2 = () => {
      });
   }
 
+  
   const savePosition = (x,y) => {
-       
+    checkedPositions.push({x:x, y:y})
+    const db = firebase.firestore();
+    const data = db.collection('game');
+    data.doc(dataPlayer2.id).set({
+      checkedPositions:checkedPositions
+      }, { merge: true })   
   }
 
   const isPositionUccupied=(x,y,piece)=>{
     return x >= piece.x && x < piece.x + piece.sizeH 
       && y >= piece.y && y < piece.y + piece.sizeV 
   }
+
+  const addFoundPiece = () =>{
+    foundPieces++;
+    const db = firebase.firestore();
+    const data = db.collection('game');
+    data.doc(dataPlayer2.id).set({
+      foundPieces:foundPieces
+      }, { merge: true })   
+  }
   
-  const checkPosition=(x, y)=>{
+  const checkPosition=(position)=>{
     let table=copyTable(tableState);
     let pieceFound = false;
+    let x = position.x;
+    let y = position.y;
     for (let index = 0; index < dataPlayer2.pieces.length; index++){
       let piece= dataPlayer2.pieces[index];
-      if(isPositionUccupied(x,y,piece)){
+      if(isPositionUccupied(x,y,piece) && !(position.state&&position.checked)){
         alert("hay una pieza");
+        addFoundPiece()
         pieceFound = true;
         for (let i=piece.x; i< piece.x + piece.sizeH; i++){
           for (let j=piece.y; j< piece.y + piece.sizeV; j++){
-            table [i][j].state = true; 
+            table [i][j].state = true;
+            table [i][j].checked = true;
+            savePosition(i,j);
           }
         }
       }
@@ -72,6 +111,21 @@ const GameBoardPlayer2 = () => {
     }
     savePosition(x,y);
     setTableState(table)
+  }
+
+  const positionColor = (position) => {
+    if(position.state){
+      if(position.checked){
+        return "cleanDog";
+      }else{
+        return "dirtyDog";
+      }
+    }else{
+      if (position.checked){
+        return "water";
+      }
+    }
+    return "emptyCell";
   }
 
     return (
@@ -84,13 +138,9 @@ const GameBoardPlayer2 = () => {
                   {row.map(position => (
                     <TableCell
                       data={[position.x, position.y]}
-                      className={
-                        (tableState[position.x][position.y].state ?
-                           "occupiedCell" :
-                              (tableState[position.x][position.y].checked ? "checkedCell" : "emptyCell"))                      
-                      }
+                      className={positionColor(position)}
                       onClick={() =>
-                       checkPosition(position.x, position.y)
+                       checkPosition(position)
                       }
                     >
                     </TableCell>

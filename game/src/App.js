@@ -11,7 +11,7 @@ import EndGame from './Views/EndGame';
  
 const App=()=> {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <React.Fragment>
         <Redirect
             exact

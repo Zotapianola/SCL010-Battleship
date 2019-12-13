@@ -4,7 +4,6 @@ import { Button, Input } from '@material-ui/core';
 import GameBoardPlayer1 from '../Components/GameBoardPlayer1';
 import GameBoardPlayer2 from '../Components/GameBoardPlayer2';
 import firebase from '../data/firebase'
-import { rejects } from 'assert';
 
 //creando context 
 export const ContexPlayer1=React.createContext();
@@ -45,8 +44,8 @@ function getPlayer2(opponentGameBoardId){
 function Game() {
 
   // hook
-  const [dataPlayer1, setdataPlayer1] = React.useState({pieces:[]});
-  const [dataPlayer2, setdataPlayer2] = React.useState({pieces:[]});
+  const [dataPlayer1, setdataPlayer1] = React.useState({pieces:[],checkedPositions:[],foundPieces:0});
+  const [dataPlayer2, setdataPlayer2] = React.useState({pieces:[],checkedPositions:[], foundPieces:0});
   const [isLoading, setIsLoading] = React.useState(false);
   const [isOpponentLoaded, setIsOpponentLoaded] = React.useState(false);
   const [opponentGameBoardId, setOpponentGameBoardId] = React.useState();
@@ -64,53 +63,89 @@ function Game() {
       setdataPlayer1(player1);
       setIsLoading(false);
     })
-  },[dataPlayer2]);
+  },[]);
 
   const showPlayer2=()=>{
     getPlayer2(opponentGameBoardId)
     .then(player2 => {
       if (player2.name1) {
+        player2.id=opponentGameBoardId;
         setdataPlayer2(player2);
         setIsOpponentLoaded(true);
       }else{
-        alert("codigo del oponente incorrecto");
+        alert("Código de oponente incorrecto");
       }
       
     })
     .catch (err=> {
-      alert("codigo del oponente incorrecto");
+      alert("Código de oponente incorrecto");
       setIsOpponentLoaded(false);
     })
   }
-
   
-  return isLoading ? <h1>Is loading</h1> : (
+  const updateGame=()=>{
+    setIsLoading(true);
+    setIsOpponentLoaded(false);
+    getPlayer1()
+    .then(player1 => {
+      setdataPlayer1(player1);
+      setIsLoading(false);
+    });
+    getPlayer2(opponentGameBoardId)
+    .then(player2 => {
+      player2.id=opponentGameBoardId;
+      setdataPlayer2(player2);
+      setIsOpponentLoaded(true);
+    })
+  }
+
+  const showWinner = () => {
+    if(dataPlayer1.foundPieces===7){
+      return "El ganador es " + dataPlayer2.name1;
+    }
+    if(dataPlayer2.foundPieces===7){
+      return "El ganador es " + dataPlayer1.name1;
+    }
+    return "none";
+  }
+  
+  return isLoading ? <h1>Cargando Juego ...</h1> : (
+    showWinner() !== "none" ? 
+    <div>
+      {showWinner()}
+      <Link to="/EndGame">Terminar juego</Link>
+    </div>
+    : (
     <div>
       <div className="AreaJugador1">
-        <h1>Jugador:{dataPlayer1.name1}</h1>
+      <h2>Jugador:{dataPlayer1.name1}</h2>
+      <h3> Ha bañado {dataPlayer2.foundPieces} de 7 perritos</h3>
         <ContexPlayer1.Provider value={ContexPlayer1State}>
         <GameBoardPlayer1/>
         </ContexPlayer1.Provider>
       </div>
+      <Button variant="outlined"
+          onClick={() => updateGame()}>
+            Perrito Bañado
+        </Button>
       <div className="AreaJugador2">
-        <h1>Jugador:{dataPlayer2.name1}</h1>
-        <Input id="opponentGameBoardId"
+      <h2>Jugador:{dataPlayer2.name1}</h2>
+      <h3>Ha bañado {dataPlayer1.foundPieces} de 7 perritos</h3>
+      <Input id="opponentGameBoardId"
           type="text" 
-          placeholder="Ingrese codigo de oponente" 
+          placeholder="Ingrese codigo" 
           onChange={(event)=>setOpponentGameBoardId(event.target.value)}
          ></Input>
         <Button variant="outlined"
           onClick={() => showPlayer2()}>
             Cargar Oponente
         </Button>
-        { !isOpponentLoaded ? <h1>cargando oponente :)</h1> :( <ContexPlayer2.Provider value={ContexPlayer2State}>
+        { !isOpponentLoaded ? <h1>cargando oponente ...</h1> :( <ContexPlayer2.Provider value={ContexPlayer2State}>
       <GameBoardPlayer2/>
     </ContexPlayer2.Provider>)}
     </div>
-    <Link to="/EndGame">terminar juego</Link>
     </div>
-  );
-  
+  ));
 }
 
 export default Game;
